@@ -3,611 +3,565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuska weds Debdan - Wedding Invitation</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Satisfy, Sacramento, Dancing Script, Caveat, Cormorant Garamond, Montserrat -->
+    <title>Anuska weds Debdan | Wedding Invitation</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&family=Sacramento&family=Satisfy&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        creamBg: '#fbf9f5',
-                        columnBg: '#f4ede2',
-                        cardBg: '#faf6f0',
-                        goldAccent: '#c5a059',
-                        goldHover: '#b08b46',
-                        darkCharcoal: '#2d2b2a',
-                        softMuted: '#6e6a66',
-                        champagne: '#e8dfd1'
-                    },
-                    fontFamily: {
-                        satisfy: ['"Satisfy"', 'cursive'],
-                        sacramento: ['"Sacramento"', 'cursive'],
-                        dancing: ['"Dancing Script"', 'cursive'],
-                        caveat: ['"Caveat"', 'cursive'],
-                        serifBody: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"Montserrat"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@600&family=Cinzel+Decorative:wght@600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&family=Parisienne&family=Playfair+Display:ital,wght@0,600;1,400&family=Sacramento&family=Satisfy&display=swap" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --bg-outer: #f9f6f0;
+            --bg-inner: #f4ede2;
+            --bg-card: #ffffff;
+            --primary: #8b5e3c;
+            --primary-dark: #674226;
+            --accent: #d4a373;
+            --text-main: #3a332c;
+            --text-light: #7c7267;
+            --font-title: 'Dancing Script', cursive;
+            --font-body: 'Cormorant Garamond', serif;
+            --font-ui: 'Montserrat', sans-serif;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fbf9f5;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d4c8b8;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #c5a059;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .gold-border-decor {
-            border: 1px solid rgba(197, 160, 89, 0.3);
+        body {
+            background-color: var(--bg-outer);
+            background-image: radial-gradient(#e2d7c5 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .header-controls {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .font-selector-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .font-selector {
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--accent);
+            background: #fff;
+            color: var(--text-main);
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .music-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .central-column {
+            width: 100%;
+            max-width: 680px;
+            background-color: var(--bg-inner);
+            min-height: 100vh;
+            margin-top: 50px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.05);
+            position: relative;
+            padding: 40px 24px 80px 24px;
+            border-left: 1px solid rgba(212, 163, 115, 0.2);
+            border-right: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 10px 20px 10px;
             position: relative;
         }
-        .gold-border-decor::before, .gold-border-decor::after {
-            content: "❖";
+
+        .subtitle-top {
+            font-family: var(--font-ui);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .couple-title {
+            font-family: var(--font-title);
+            font-size: 3.2rem;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 15px;
+            transition: font-family 0.3s ease;
+        }
+
+        .wedding-date-banner {
+            font-family: var(--font-ui);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            color: var(--primary-dark);
+            font-weight: 500;
+            margin-top: 5px;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+        }
+
+        .countdown-wrapper {
+            position: relative;
+            margin: 80px auto 30px auto;
+            max-width: 500px;
+        }
+
+        .chibi-avatar-container {
             position: absolute;
-            color: #c5a059;
-            font-size: 12px;
-            background: #f4ede2;
-            padding: 0 4px;
-        }
-        .gold-border-decor::before { top: -9px; left: 50%; transform: translateX(-50%); }
-        .gold-border-decor::after { bottom: -9px; left: 50%; transform: translateX(-50%); }
-
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
+            top: -75px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: 110px;
+            height: 110px;
+            pointer-events: none;
         }
 
-        @keyframes subtlePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.06); }
+        .chibi-avatar-container svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.12));
         }
-        .pulse-subtle {
-            animation: subtlePulse 3s infinite ease-in-out;
+
+        .countdown-container {
+            background: linear-gradient(135deg, #a67c52, #8b5e3c);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 24px 15px 18px 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(139, 94, 60, 0.25);
+            position: relative;
+        }
+
+        .timer-unit {
+            text-align: center;
+            flex: 1;
+        }
+
+        .timer-number {
+            font-family: var(--font-ui);
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-family: var(--font-ui);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-top: 6px;
+        }
+
+        .timer-divider {
+            font-size: 1.5rem;
+            opacity: 0.5;
+            margin-bottom: 12px;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(212, 163, 115, 0.15);
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .section-text {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 20px;
+            text-align: left;
+            border-left: 2px solid var(--accent);
+        }
+
+        .timeline-event {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 15px;
+        }
+
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .event-time {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .event-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .action-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        .footer {
+            text-align: center;
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .couple-title { font-size: 2.6rem; }
+            .timer-number { font-size: 1.4rem; }
+            .timer-label { font-size: 0.55rem; }
+            .central-column { padding: 25px 15px 60px 15px; }
         }
     </style>
 </head>
-<body class="bg-creamBg text-darkCharcoal font-serifBody antialiased min-h-screen flex justify-center selection:bg-goldAccent selection:text-white">
+<body>
 
-    <!-- Subtle Background Pattern -->
-    <div class="fixed inset-0 pointer-events-none opacity-40 z-0 bg-[radial-gradient(#c5a059_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <div class="header-controls">
+        <div class="font-selector-container">
+            <span>Font:</span>
+            <select class="font-selector" id="fontSelector" onchange="changeFont(this.value)">
+                <option value="Dancing Script" selected>Dancing Script</option>
+                <option value="Satisfy">Satisfy</option>
+                <option value="Sacramento">Sacramento</option>
+                <option value="Caveat">Caveat</option>
+                <option value="Playfair Display">Playfair Display</option>
+            </select>
+        </div>
+        <button class="music-btn" id="musicBtn" onclick="toggleAudio()">
+            <span id="musicIcon">🎵</span> <span id="musicText">Play Music</span>
+        </button>
+    </div>
 
-    <!-- Main Central Column Container -->
-    <main class="relative z-10 w-full max-w-2xl bg-columnBg min-h-screen shadow-2xl border-x border-goldAccent/20 flex flex-col my-0 sm:my-4 sm:rounded-2xl overflow-hidden transition-all duration-300">
+    <div class="central-column">
+        
+        <header class="hero-section">
+            <p class="subtitle-top">Together with their families</p>
+            <h1 class="couple-title" id="coupleTitle">Anuska weds Debdan</h1>
+            <p class="wedding-date-banner">February 24, 2027</p>
 
-        <!-- Top Sticky Control Bar -->
-        <header class="sticky top-0 z-50 bg-columnBg/95 backdrop-blur-md border-b border-goldAccent/20 px-3 sm:px-4 py-2.5 flex justify-between items-center text-xs tracking-widest font-sans uppercase text-softMuted">
-            <!-- Dynamic Header Font Switcher Dropdown -->
-            <div class="flex items-center space-x-1 sm:space-x-2">
-                <i class="fas fa-pen-nib text-goldAccent text-xs"></i>
-                <select id="fontSelector" class="bg-cardBg/90 border border-goldAccent/30 text-darkCharcoal text-[11px] font-sans font-medium rounded-full px-2 py-1 focus:outline-none focus:ring-1 focus:ring-goldAccent cursor-pointer shadow-sm">
-                    <option value="font-dancing" selected>Dancing Script (Lively Warm)</option>
-                    <option value="font-satisfy">Satisfy (Friendly Cursive)</option>
-                    <option value="font-sacramento">Sacramento (Soft Flowy)</option>
-                    <option value="font-caveat">Caveat (Personal Casual)</option>
-                </select>
-            </div>
-            
-            <div class="flex items-center space-x-2 sm:space-x-3">
-                <!-- Audio Toggle Button -->
-                <button id="musicToggle" class="flex items-center space-x-1.5 bg-cardBg hover:bg-goldAccent hover:text-white border border-goldAccent/30 px-3 py-1.5 rounded-full transition-all duration-300 text-darkCharcoal shadow-sm" title="Toggle Music">
-                    <i id="musicIcon" class="fas fa-pause text-goldAccent"></i>
-                    <span id="musicText" class="text-[10px] uppercase font-medium hidden sm:inline">Pause Music</span>
-                </button>
+            <div class="countdown-wrapper">
+                <!-- Chibi Vector Avatar Sticker of Anuska -->
+                <div class="chibi-avatar-container">
+                    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="60" r="55" fill="#f4ede2" stroke="#d4a373" stroke-width="2"/>
+                        <!-- Hair Back -->
+                        <path d="M30 45 C25 70, 30 90, 40 95 C45 80, 40 60, 35 45 Z" fill="#2c1d11"/>
+                        <path d="M90 45 C95 70, 90 90, 80 95 C75 80, 80 60, 85 45 Z" fill="#2c1d11"/>
+                        <!-- Head / Face -->
+                        <ellipse cx="60" cy="55" rx="24" ry="22" fill="#fcd7b6"/>
+                        <!-- Hair Front/Bangs -->
+                        <path d="M36 45 C42 32, 78 32, 84 45 C75 38, 65 42, 60 46 C55 42, 45 38, 36 45 Z" fill="#3a2312"/>
+                        <!-- Eyes -->
+                        <ellipse cx="50" cy="54" rx="3.5" ry="5" fill="#2c1d11"/>
+                        <ellipse cx="70" cy="54" rx="3.5" ry="5" fill="#2c1d11"/>
+                        <circle cx="51.5" cy="52.5" r="1.2" fill="#ffffff"/>
+                        <circle cx="71.5" cy="52.5" r="1.2" fill="#ffffff"/>
+                        <!-- Blush -->
+                        <ellipse cx="46" cy="60" rx="4" ry="2" fill="#ff9999" opacity="0.6"/>
+                        <ellipse cx="74" cy="60" rx="4" ry="2" fill="#ff9999" opacity="0.6"/>
+                        <!-- Smile -->
+                        <path d="M56 62 Q60 66 64 62" stroke="#b35959" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                        <!-- Denim Outfit/Torso -->
+                        <path d="M44 76 C44 70, 76 70, 76 76 L72 96 C72 98, 48 98, 48 96 Z" fill="#2b5278"/>
+                        <!-- Collar/Buttons -->
+                        <path d="M54 74 L60 82 L66 74" stroke="#ffffff" stroke-width="1.2" fill="none"/>
+                        <circle cx="60" cy="86" r="1" fill="#ffffff"/>
+                        <circle cx="60" cy="91" r="1" fill="#ffffff"/>
+                        <!-- Sitting Legs -->
+                        <path d="M48 95 C42 96, 40 102, 48 104 C54 104, 56 98, 52 95 Z" fill="#244261"/>
+                        <path d="M72 95 C78 96, 80 102, 72 104 C66 104, 64 98, 68 95 Z" fill="#244261"/>
+                        <!-- Cute Rose Accent -->
+                        <circle cx="28" cy="85" r="5" fill="#d9534f"/>
+                        <circle cx="92" cy="85" r="5" fill="#d9534f"/>
+                    </svg>
+                </div>
 
-                <!-- Navigation Quick Menu Link -->
-                <a href="#rsvp" class="bg-goldAccent hover:bg-goldHover text-white px-3.5 py-1.5 rounded-full font-medium transition duration-300 shadow-sm text-[11px]">
-                    RSVP
-                </a>
+                <div class="countdown-container">
+                    <div class="timer-unit">
+                        <div class="timer-number" id="days">00</div>
+                        <div class="timer-label">Days</div>
+                    </div>
+                    <div class="timer-divider">:</div>
+                    <div class="timer-unit">
+                        <div class="timer-number" id="hours">00</div>
+                        <div class="timer-label">Hours</div>
+                    </div>
+                    <div class="timer-divider">:</div>
+                    <div class="timer-unit">
+                        <div class="timer-number" id="minutes">00</div>
+                        <div class="timer-label">Minutes</div>
+                    </div>
+                    <div class="timer-divider">:</div>
+                    <div class="timer-unit">
+                        <div class="timer-number" id="seconds">00</div>
+                        <div class="timer-label">Seconds</div>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <!-- Hero / Save The Date Section -->
-        <section class="px-6 py-12 md:py-16 text-center flex flex-col items-center justify-center relative border-b border-goldAccent/20 bg-gradient-to-b from-cardBg/50 to-columnBg">
-            
-            <!-- Floral Ornament SVG Top -->
-            <div class="w-24 mb-3 opacity-80">
-                <svg viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-goldAccent stroke-current stroke-[1.5]">
-                    <path d="M0 10 Q 25 0, 50 10 Q 75 20, 100 10" />
-                    <circle cx="50" cy="10" r="3" fill="#c5a059" />
-                </svg>
-            </div>
-
-            <p class="font-sans uppercase text-xs sm:text-sm tracking-[0.3em] text-goldAccent mb-2 font-medium">
-                Save Our Date
+        <section class="section-card">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-text">
+                We are excited to celebrate our special day with our cherished family and friends! 
+                Join us as we step into this wonderful new chapter of our lives together.
             </p>
-
-            <!-- Main Couple Names with Dynamic Script Font Class -->
-            <h1 id="coupleHeading" class="font-dancing text-5xl sm:text-7xl md:text-8xl text-darkCharcoal my-3 tracking-normal leading-tight font-normal transition-all duration-300">
-                Anuska <span class="text-goldAccent font-serifBody text-3xl sm:text-5xl italic font-normal mx-1">&amp;</span> Debdan
-            </h1>
-
-            <p class="font-serifBody italic text-lg sm:text-xl text-softMuted mt-1 mb-6">
-                Are getting married!
-            </p>
-
-            <!-- Date Display Card -->
-            <div class="my-3 inline-block px-8 py-3 border-y-2 border-goldAccent/40 bg-cardBg/80 shadow-sm">
-                <span class="font-serifBody text-xl sm:text-2xl font-semibold tracking-wider text-darkCharcoal uppercase">
-                    February 24, 2027
-                </span>
-            </div>
-
-            <p class="text-sm font-sans text-softMuted tracking-widest uppercase mt-1">
-                Kolkata, India
-            </p>
-
-            <!-- Live Countdown Timer -->
-            <div class="w-full max-w-md mt-10 p-6 bg-cardBg rounded-xl border border-goldAccent/30 shadow-md fade-in-up">
-                <h3 class="font-sans uppercase text-xs tracking-widest text-softMuted mb-4 font-semibold">
-                    Counting Down to Our Wedding
-                </h3>
-                
-                <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
-                        <span id="timerDays" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Days</span>
-                    </div>
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
-                        <span id="timerHours" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Hours</span>
-                    </div>
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
-                        <span id="timerMinutes" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Mins</span>
-                    </div>
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
-                        <span id="timerSeconds" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Secs</span>
-                    </div>
-                </div>
-
-                <!-- Add to Calendar Button -->
-                <div class="mt-6 flex justify-center">
-                    <button id="addToCalBtn" class="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-wider text-goldAccent hover:text-goldHover border border-goldAccent/40 hover:border-goldAccent bg-white/50 px-4 py-2 rounded-full transition duration-300">
-                        <i class="far fa-calendar-plus"></i>
-                        <span>Add to Google Calendar</span>
-                    </button>
-                </div>
-            </div>
-
         </section>
 
-        <!-- Welcome / Our Story Section -->
-        <section class="px-6 py-12 text-center bg-cardBg/40 border-b border-goldAccent/20 fade-in-up">
-            <div class="max-w-lg mx-auto">
-                <span class="text-goldAccent text-2xl font-serifBody">✦</span>
-                <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1 mb-4">
-                    Our Beginning
-                </h2>
-                <div class="w-16 h-0.5 bg-goldAccent mx-auto mb-6 opacity-60"></div>
-                
-                <p class="text-base sm:text-lg text-darkCharcoal leading-relaxed italic mb-4">
-                    "Two hearts, one journey. With joy in our hearts and the blessings of our families, we invite you to celebrate the start of our forever story."
-                </p>
-                <p class="text-sm font-sans text-softMuted leading-relaxed">
-                    We are overjoyed to welcome you to our wedding page! As we prepare for our big day in February, we will keep updating this space with events, timings, venue locations, and travel details.
-                </p>
+        <section class="section-card">
+            <h2 class="section-title">Events Schedule</h2>
+            <div class="timeline">
+                <div class="timeline-event">
+                    <div class="event-time">Wednesday, Feb 24, 2027 • 6:00 PM</div>
+                    <div class="event-title">Wedding Ceremony</div>
+                    <div class="event-desc">Join us as we exchange our vows.</div>
+                </div>
+                <div class="timeline-event">
+                    <div class="event-time">Wednesday, Feb 24, 2027 • 8:00 PM</div>
+                    <div class="event-title">Dinner & Reception</div>
+                    <div class="event-desc">An evening of delicious food, music, and celebrations.</div>
+                </div>
             </div>
+            <a href="https://calendar.google.com" target="_blank" class="action-btn">Add to Google Calendar</a>
         </section>
 
-        <!-- Wedding Events & Timeline Section -->
-        <section class="px-6 py-12 border-b border-goldAccent/20 fade-in-up">
-            <div class="text-center mb-10">
-                <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Program Schedule</span>
-                <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1">Wedding Events</h2>
-                <div class="w-12 h-0.5 bg-goldAccent mx-auto mt-3 opacity-60"></div>
-            </div>
-
-            <!-- Event Cards Container -->
-            <div class="space-y-6 max-w-lg mx-auto">
-                
-                <!-- Event 1: Ceremony -->
-                <div class="bg-cardBg p-6 rounded-xl border border-goldAccent/30 shadow-sm relative hover:shadow-md transition duration-300">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-xs font-sans uppercase font-bold tracking-wider text-goldAccent bg-goldAccent/10 px-2.5 py-1 rounded-md">
-                                Day 1 - Ceremony
-                            </span>
-                            <h3 class="font-serifBody text-2xl font-semibold text-darkCharcoal mt-2">The Wedding Ceremony</h3>
-                        </div>
-                        <i class="fas fa-ring text-goldAccent/60 text-xl"></i>
-                    </div>
-                    
-                    <div class="mt-4 space-y-2 text-sm text-softMuted font-sans">
-                        <p class="flex items-center">
-                            <i class="far fa-clock w-5 text-goldAccent"></i>
-                            <span>Wednesday, Feb 24, 2027 • 6:00 PM Onwards</span>
-                        </p>
-                        <p class="flex items-center">
-                            <i class="fas fa-map-marker-alt w-5 text-goldAccent"></i>
-                            <span>Grand Heritage Banquet, Park Street, Kolkata</span>
-                        </p>
-                    </div>
-
-                    <div class="mt-5 pt-4 border-t border-goldAccent/15 flex justify-between items-center">
-                        <span class="text-xs italic font-serifBody text-darkCharcoal">Traditional Indian Attire</span>
-                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center text-xs font-sans text-goldAccent hover:text-goldHover font-medium">
-                            <span>Get Directions</span>
-                            <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
-                        </a>
-                    </div>
+        <section class="section-card">
+            <h2 class="section-title">RSVP</h2>
+            <form id="rsvpForm" onsubmit="handleRSVP(event)">
+                <div class="form-group">
+                    <label for="guestName">Your Full Name</label>
+                    <input type="text" id="guestName" class="form-control" placeholder="e.g. Rahul Sharma" required>
                 </div>
-
-                <!-- Event 2: Reception -->
-                <div class="bg-cardBg p-6 rounded-xl border border-goldAccent/30 shadow-sm relative hover:shadow-md transition duration-300">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-xs font-sans uppercase font-bold tracking-wider text-goldAccent bg-goldAccent/10 px-2.5 py-1 rounded-md">
-                                Day 2 - Reception
-                            </span>
-                            <h3 class="font-serifBody text-2xl font-semibold text-darkCharcoal mt-2">Grand Reception</h3>
-                        </div>
-                        <i class="fas fa-glass-cheers text-goldAccent/60 text-xl"></i>
-                    </div>
-                    
-                    <div class="mt-4 space-y-2 text-sm text-softMuted font-sans">
-                        <p class="flex items-center">
-                            <i class="far fa-clock w-5 text-goldAccent"></i>
-                            <span>Thursday, Feb 25, 2027 • 7:00 PM Onwards</span>
-                        </p>
-                        <p class="flex items-center">
-                            <i class="fas fa-map-marker-alt w-5 text-goldAccent"></i>
-                            <span>The Royal Palace Gardens, Kolkata</span>
-                        </p>
-                    </div>
-
-                    <div class="mt-5 pt-4 border-t border-goldAccent/15 flex justify-between items-center">
-                        <span class="text-xs italic font-serifBody text-darkCharcoal">Indo-Western / Formal Wear</span>
-                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center text-xs font-sans text-goldAccent hover:text-goldHover font-medium">
-                            <span>Get Directions</span>
-                            <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
-                        </a>
-                    </div>
+                <div class="form-group">
+                    <label for="attending">Will you join us?</label>
+                    <select id="attending" class="form-control">
+                        <option value="yes">Joyfully Accepts</option>
+                        <option value="no">Regretfully Declines</option>
+                    </select>
                 </div>
-
-            </div>
+                <div class="form-group">
+                    <label for="message">Message for the Couple</label>
+                    <textarea id="message" class="form-control" rows="3" placeholder="Warm wishes..."></textarea>
+                </div>
+                <button type="submit" class="action-btn" style="border:none; cursor:pointer;">Send Response</button>
+            </form>
         </section>
 
-        <!-- Interactive RSVP Section -->
-        <section id="rsvp" class="px-6 py-12 bg-cardBg/60 border-b border-goldAccent/20 fade-in-up">
-            <div class="max-w-lg mx-auto">
-                <div class="text-center mb-8">
-                    <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Kindly Respond</span>
-                    <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1">RSVP</h2>
-                    <p class="text-sm text-softMuted font-sans mt-2">Please reply by January 25, 2027 to help us plan.</p>
-                    <div class="w-12 h-0.5 bg-goldAccent mx-auto mt-3 opacity-60"></div>
-                </div>
-
-                <!-- RSVP Form -->
-                <form id="rsvpForm" class="space-y-5 font-sans">
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-darkCharcoal font-medium mb-1">Your Full Name *</label>
-                        <input type="text" id="guestName" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded-lg border border-goldAccent/40 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-goldAccent/50 text-sm">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-darkCharcoal font-medium mb-1">Will You Attend? *</label>
-                        <select id="guestAttendance" required class="w-full px-4 py-2.5 rounded-lg border border-goldAccent/40 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-goldAccent/50 text-sm">
-                            <option value="Joyfully Accepts">Joyfully Accepts (Will attend)</option>
-                            <option value="Regretfully Declines">Regretfully Declines (Cannot attend)</option>
-                        </select>
-                    </div>
-
-                    <div id="guestCountContainer">
-                        <label class="block text-xs uppercase tracking-wider text-darkCharcoal font-medium mb-1">Number of Guests</label>
-                        <select id="guestCount" class="w-full px-4 py-2.5 rounded-lg border border-goldAccent/40 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-goldAccent/50 text-sm">
-                            <option value="1">1 Person</option>
-                            <option value="2">2 Persons</option>
-                            <option value="3">3 Persons</option>
-                            <option value="4+">4+ Family</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-darkCharcoal font-medium mb-1">Wishes & Message for Couple</label>
-                        <textarea id="guestMessage" rows="3" placeholder="Leave a loving message..." class="w-full px-4 py-2.5 rounded-lg border border-goldAccent/40 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-goldAccent/50 text-sm"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full py-3 bg-goldAccent hover:bg-goldHover text-white font-medium uppercase text-xs tracking-widest rounded-lg transition duration-300 shadow-md">
-                        Send RSVP Response
-                    </button>
-                </form>
-
-                <!-- Confirmation Message Container -->
-                <div id="rsvpSuccess" class="hidden text-center p-6 bg-white rounded-xl border border-goldAccent/40 shadow-sm mt-4">
-                    <i class="fas fa-check-circle text-3xl text-goldAccent mb-2"></i>
-                    <h3 class="font-serifBody text-2xl text-darkCharcoal font-semibold">Thank You!</h3>
-                    <p class="text-sm font-sans text-softMuted mt-1" id="successDetails">Your response has been recorded. We look forward to celebrating together!</p>
-                </div>
-
-                <!-- Saved Responses Modal Toggle -->
-                <div class="mt-8 text-center pt-4 border-t border-goldAccent/20">
-                    <button id="viewResponsesBtn" class="text-[11px] font-sans text-softMuted hover:text-goldAccent underline uppercase tracking-wider">
-                        View Saved Responses (<span id="savedCount">0</span>)
-                    </button>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Location / Map Section -->
-        <section class="px-6 py-12 text-center fade-in-up">
-            <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Location Details</span>
-            <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1 mb-4">Venue Map</h2>
-            <div class="w-12 h-0.5 bg-goldAccent mx-auto mb-6 opacity-60"></div>
-
-            <div class="rounded-xl overflow-hidden border border-goldAccent/30 shadow-sm max-w-lg mx-auto bg-cardBg">
-                <iframe 
-                    title="Venue Map Location" 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117925.21689728033!2d88.26495047805166!3d22.535564936306013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
-                    class="w-full h-64 border-0" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="mt-auto py-8 px-6 text-center bg-cardBg border-t border-goldAccent/20 font-sans text-xs text-softMuted">
-            <p class="font-satisfy text-2xl text-darkCharcoal mb-1">Anuska &amp; Debdan</p>
-            <p>February 24, 2027 • Kolkata, India</p>
-            <p class="mt-4 text-[10px] text-softMuted/70">Made with ❤️ for our special day</p>
+        <footer class="footer">
+            <p>Made with ❤️ for Anuska & Debdan</p>
         </footer>
 
-    </main>
-
-    <!-- Modal for Viewing Saved Responses -->
-    <div id="responsesModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-cardBg w-full max-w-md rounded-2xl p-6 shadow-2xl border border-goldAccent/40 max-h-[80vh] flex flex-col">
-            <div class="flex justify-between items-center border-b border-goldAccent/20 pb-3 mb-4">
-                <h3 class="font-serifBody text-xl font-bold text-darkCharcoal">Saved RSVP Responses</h3>
-                <button id="closeModalBtn" class="text-softMuted hover:text-darkCharcoal text-lg">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div id="modalList" class="overflow-y-auto space-y-3 pr-1 text-left flex-1">
-                <!-- Dynamic Items Inserted Here -->
-            </div>
-
-            <div class="mt-4 pt-3 border-t border-goldAccent/20 flex justify-between items-center">
-                <button id="clearResponsesBtn" class="text-xs text-red-600 hover:underline">Clear Responses</button>
-                <button id="closeModalBtn2" class="px-4 py-1.5 bg-goldAccent text-white rounded-lg text-xs font-sans">Close</button>
-            </div>
-        </div>
     </div>
 
-    <!-- Audio Element -->
-    <audio id="bgMusic" loop autoplay preload="auto">
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-piano-112191.mp3" type="audio/mpeg">
+    <!-- Background Audio File -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-piano-112188.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // 1. Font Switcher Interactivity
-            const fontSelector = document.getElementById('fontSelector');
-            const coupleHeading = document.getElementById('coupleHeading');
+        // Set Wedding Date: Feb 24, 2027
+        const weddingDate = new Date("February 24, 2027 18:00:00").getTime();
 
-            fontSelector.addEventListener('change', function(e) {
-                // Remove previous script font classes
-                coupleHeading.classList.remove('font-satisfy', 'font-sacramento', 'font-dancing', 'font-caveat');
-                // Add newly selected font class
-                coupleHeading.classList.add(e.target.value);
-            });
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
 
-            // 2. Live Countdown Timer Setup
-            const weddingDate = new Date("February 24, 2027 18:00:00").getTime();
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = weddingDate - now;
-
-                if (distance < 0) {
-                    document.getElementById("timerDays").innerText = "00";
-                    document.getElementById("timerHours").innerText = "00";
-                    document.getElementById("timerMinutes").innerText = "00";
-                    document.getElementById("timerSeconds").innerText = "00";
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("timerDays").innerText = days < 10 ? "0" + days : days;
-                document.getElementById("timerHours").innerText = hours < 10 ? "0" + hours : hours;
-                document.getElementById("timerMinutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("timerSeconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+                document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
             }
+        }
 
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-            // 3. Audio Control & Autoplay Handler
-            const musicToggle = document.getElementById('musicToggle');
-            const bgMusic = document.getElementById('bgMusic');
-            const musicIcon = document.getElementById('musicIcon');
-            const musicText = document.getElementById('musicText');
-            let isPlaying = false;
+        // Font Switcher Function
+        function changeFont(fontName) {
+            document.getElementById("coupleTitle").style.fontFamily = `'${fontName}', cursive`;
+        }
 
-            function playAudio() {
-                bgMusic.play().then(() => {
-                    isPlaying = true;
-                    musicIcon.className = "fas fa-pause text-goldAccent";
-                    musicText.innerText = "Pause Music";
-                }).catch((err) => {
-                    isPlaying = false;
-                    musicIcon.className = "fas fa-music text-goldAccent";
-                    musicText.innerText = "Play Music";
-                    console.log("Autoplay paused waiting for user gesture:", err);
-                });
-            }
+        // Music Controls & Autoplay Handling
+        const audio = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+        const musicIcon = document.getElementById("musicIcon");
+        const musicText = document.getElementById("musicText");
+        let isPlaying = false;
 
-            function pauseAudio() {
-                bgMusic.pause();
-                isPlaying = false;
-                musicIcon.className = "fas fa-music text-goldAccent";
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.innerText = "🎵";
                 musicText.innerText = "Play Music";
-            }
-
-            // Attempt autoplay on initial page load
-            playAudio();
-
-            // Direct user interaction fallback (plays audio on first tap/click anywhere if blocked by browser policy)
-            function enableAudioOnFirstInteraction() {
-                if (!isPlaying) {
-                    playAudio();
-                }
-                document.removeEventListener('click', enableAudioOnFirstInteraction);
-                document.removeEventListener('touchstart', enableAudioOnFirstInteraction);
-            }
-
-            document.addEventListener('click', enableAudioOnFirstInteraction);
-            document.addEventListener('touchstart', enableAudioOnFirstInteraction);
-
-            // Manual toggle button
-            musicToggle.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevents document click trigger conflicts
-                if (isPlaying) {
-                    pauseAudio();
-                } else {
-                    playAudio();
-                }
-            });
-
-            // 4. Add to Google Calendar Action Button
-            document.getElementById('addToCalBtn').addEventListener('click', function() {
-                const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Anuska+%26+Debdan+Wedding&dates=20270224T123000Z/20270224T180000Z&details=Join+us+in+celebrating+the+wedding+of+Anuska+and+Debdan!&location=Kolkata,+India";
-                window.open(calUrl, '_blank');
-            });
-
-            // 5. RSVP LocalStorage Handling
-            const rsvpForm = document.getElementById('rsvpForm');
-            const rsvpSuccess = document.getElementById('rsvpSuccess');
-            const savedCount = document.getElementById('savedCount');
-
-            function getRSVPs() {
-                return JSON.parse(localStorage.getItem('wedding_rsvps') || '[]');
-            }
-
-            function updateSavedCount() {
-                const list = getRSVPs();
-                savedCount.innerText = list.length;
-            }
-
-            updateSavedCount();
-
-            rsvpForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById('guestName').value;
-                const attendance = document.getElementById('guestAttendance').value;
-                const count = document.getElementById('guestCount').value;
-                const message = document.getElementById('guestMessage').value;
-
-                const newRsvp = {
-                    name,
-                    attendance,
-                    count: attendance === 'Joyfully Accepts' ? count : '0',
-                    message,
-                    date: new Date().toLocaleDateString()
-                };
-
-                const currentRsvps = getRSVPs();
-                currentRsvps.push(newRsvp);
-                localStorage.setItem('wedding_rsvps', JSON.stringify(currentRsvps));
-
-                rsvpForm.classList.add('hidden');
-                rsvpSuccess.classList.remove('hidden');
-                document.getElementById('successDetails').innerText = `Thank you, ${name}! Your response (${attendance}) has been recorded.`;
-                updateSavedCount();
-            });
-
-            // 6. Responses Modal Logic
-            const viewResponsesBtn = document.getElementById('viewResponsesBtn');
-            const responsesModal = document.getElementById('responsesModal');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            const closeModalBtn2 = document.getElementById('closeModalBtn2');
-            const clearResponsesBtn = document.getElementById('clearResponsesBtn');
-            const modalList = document.getElementById('modalList');
-
-            function renderModalList() {
-                const list = getRSVPs();
-                if (list.length === 0) {
-                    modalList.innerHTML = `<p class="text-xs text-softMuted italic text-center py-4">No responses saved yet.</p>`;
-                    return;
-                }
-
-                modalList.innerHTML = list.map((item, idx) => `
-                    <div class="p-3 bg-white rounded-lg border border-goldAccent/20 text-xs font-sans">
-                        <div class="flex justify-between font-semibold text-darkCharcoal">
-                            <span>${idx + 1}. ${item.name}</span>
-                            <span class="${item.attendance === 'Joyfully Accepts' ? 'text-green-700' : 'text-red-600'}">${item.attendance}</span>
-                        </div>
-                        <div class="text-softMuted mt-1">Guests: ${item.count} | Date: ${item.date}</div>
-                        ${item.message ? `<div class="mt-1 italic text-darkCharcoal bg-columnBg/30 p-1.5 rounded">"${item.message}"</div>` : ''}
-                    </div>
-                `).join('');
-            }
-
-            viewResponsesBtn.addEventListener('click', () => {
-                renderModalList();
-                responsesModal.classList.remove('hidden');
-            });
-
-            const hideModal = () => responsesModal.classList.add('hidden');
-            closeModalBtn.addEventListener('click', hideModal);
-            closeModalBtn2.addEventListener('click', hideModal);
-
-            clearResponsesBtn.addEventListener('click', () => {
-                if (confirm('Are you sure you want to clear saved RSVP entries?')) {
-                    localStorage.removeItem('wedding_rsvps');
-                    renderModalList();
-                    updateSavedCount();
-                }
-            });
-
-            // 7. Scroll Reveal Animation Observer
-            const fadeElements = document.querySelectorAll('.fade-in-up');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
+                isPlaying = false;
+            } else {
+                audio.play().then(() => {
+                    musicIcon.innerText = "⏸️";
+                    musicText.innerText = "Pause Music";
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log("Autoplay blocked by browser:", err);
                 });
-            }, { threshold: 0.1 });
+            }
+        }
 
-            fadeElements.forEach(el => observer.observe(el));
+        // Attempt autoplay on page load or first click
+        window.addEventListener('DOMContentLoaded', () => {
+            audio.play().then(() => {
+                isPlaying = true;
+                musicIcon.innerText = "⏸️";
+                musicText.innerText = "Pause Music";
+            }).catch(() => {
+                // Autoplay blocked: wait for first click
+                document.body.addEventListener('click', function startAudioOnInteraction() {
+                    if (!isPlaying) {
+                        toggleAudio();
+                    }
+                    document.body.removeEventListener('click', startAudioOnInteraction);
+                }, { once: true });
+            });
         });
+
+        // RSVP Handler
+        function handleRSVP(event) {
+            event.preventDefault();
+            const name = document.getElementById("guestName").value;
+            alert(`Thank you, ${name}! Your RSVP has been received.`);
+            document.getElementById("rsvpForm").reset();
+        }
     </script>
 </body>
 </html>
