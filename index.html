@@ -78,21 +78,6 @@
             transform: scaleX(-1);
         }
 
-        .gold-border-decor {
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            position: relative;
-        }
-        .gold-border-decor::before, .gold-border-decor::after {
-            content: "❖";
-            position: absolute;
-            color: #c5a059;
-            font-size: 12px;
-            background: #ffffff;
-            padding: 0 4px;
-        }
-        .gold-border-decor::before { top: -9px; left: 50%; transform: translateX(-50%); }
-        .gold-border-decor::after { bottom: -9px; left: 50%; transform: translateX(-50%); }
-
         .fade-in-up {
             opacity: 0;
             transform: translateY(20px);
@@ -101,6 +86,11 @@
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Carousel Image Fade Transition */
+        .carousel-slide {
+            transition: opacity 0.7s ease-in-out;
         }
     </style>
 </head>
@@ -129,11 +119,6 @@
                     <i id="musicIcon" class="fas fa-music text-goldAccent"></i>
                     <span id="musicText" class="text-[10px] uppercase font-medium hidden sm:inline">Play Music</span>
                 </button>
-
-                <!-- Navigation Quick Menu Link -->
-                <a href="#rsvp" class="bg-goldAccent hover:bg-goldHover text-white px-3.5 py-1.5 rounded-full font-medium transition duration-300 shadow-sm text-[11px]">
-                    RSVP
-                </a>
             </div>
         </header>
 
@@ -161,49 +146,14 @@
                 Are getting married!
             </p>
 
-            <!-- Date Display Card -->
-            <div class="my-3 inline-block px-8 py-3 border-y-2 border-goldAccent/40 bg-cardBg/80 shadow-sm">
-                <span class="font-serifBody text-xl sm:text-2xl font-semibold tracking-wider text-darkCharcoal uppercase">
+            <!-- Combined Date & Days to Go Card -->
+            <div class="my-4 inline-block px-8 py-4 border-y-2 border-goldAccent/40 bg-cardBg/80 shadow-sm">
+                <span class="block font-serifBody text-xl sm:text-2xl font-semibold tracking-wider text-darkCharcoal uppercase">
                     February 24, 2027
                 </span>
-            </div>
-
-            <p class="text-sm font-sans text-softMuted tracking-widest uppercase mt-1">
-                Kolkata, India
-            </p>
-
-            <!-- Live Countdown Timer -->
-            <div class="w-full max-w-md mt-10 p-6 bg-cardBg rounded-xl border border-goldAccent/30 shadow-md fade-in-up">
-                <h3 class="font-sans uppercase text-xs tracking-widest text-softMuted mb-4 font-semibold">
-                    Counting Down to Our Wedding
-                </h3>
-                
-                <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
-                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
-                        <span id="timerDays" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Days</span>
-                    </div>
-                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
-                        <span id="timerHours" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Hours</span>
-                    </div>
-                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
-                        <span id="timerMinutes" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Mins</span>
-                    </div>
-                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
-                        <span id="timerSeconds" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Secs</span>
-                    </div>
-                </div>
-
-                <!-- Add to Calendar Button -->
-                <div class="mt-6 flex justify-center">
-                    <button id="addToCalBtn" class="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-wider text-goldAccent hover:text-goldHover border border-goldAccent/40 hover:border-goldAccent bg-white px-4 py-2 rounded-full transition duration-300">
-                        <i class="far fa-calendar-plus"></i>
-                        <span>Add to Google Calendar</span>
-                    </button>
-                </div>
+                <span class="block font-sans text-xs tracking-[0.2em] uppercase text-goldAccent mt-1 font-medium" id="daysToGoText">
+                    Counting down...
+                </span>
             </div>
 
         </section>
@@ -223,6 +173,40 @@
                 <p class="text-sm font-sans text-softMuted leading-relaxed">
                     We are overjoyed to welcome you to our wedding page! As we prepare for our big day in February, we will keep updating this space with events, timings, venue locations, and travel details.
                 </p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Carousel Section -->
+        <section class="px-8 sm:px-12 py-12 text-center border-b border-goldAccent/20 bg-white fade-in-up">
+            <div class="max-w-lg mx-auto">
+                <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Moments &amp; Memories</span>
+                <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1 mb-4">Our Gallery</h2>
+                <div class="w-12 h-0.5 bg-goldAccent mx-auto mb-6 opacity-60"></div>
+
+                <!-- Carousel Outer Frame -->
+                <div id="carouselContainer" class="relative group rounded-2xl overflow-hidden shadow-lg border-2 border-goldAccent/30 bg-cardBg aspect-[4/3] flex items-center justify-center">
+                    
+                    <!-- Carousel Slide Image -->
+                    <img id="carouselImage" 
+                         src="https://res.cloudinary.com/sh3fgk3f/image/upload/v1792350150/WhatsApp_Image_2026-10-19_at_00.28.22.jpg" 
+                         alt="Anuska and Debdan" 
+                         class="carousel-slide w-full h-full object-cover select-none">
+
+                    <!-- Prev Button -->
+                    <button id="prevBtn" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 hover:bg-goldAccent text-white flex items-center justify-center backdrop-blur-sm transition duration-300 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 shadow-md">
+                        <i class="fas fa-chevron-left text-xs"></i>
+                    </button>
+
+                    <!-- Next Button -->
+                    <button id="nextBtn" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 hover:bg-goldAccent text-white flex items-center justify-center backdrop-blur-sm transition duration-300 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 shadow-md">
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+
+                    <!-- Indicators / Dots -->
+                    <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                        <!-- Dots rendered dynamically via JS -->
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -369,7 +353,8 @@
         <!-- Location / Map Section -->
         <section class="px-8 sm:px-12 py-12 text-center fade-in-up">
             <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Location Details</span>
-            <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1 mb-4">Venue Map</h2>
+            <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1 mb-2">Venue Map</h2>
+            <p class="text-sm font-sans text-softMuted tracking-wider uppercase mb-6">Kolkata, India</p>
             <div class="w-12 h-0.5 bg-goldAccent mx-auto mb-6 opacity-60"></div>
 
             <div class="rounded-xl overflow-hidden border border-goldAccent/30 shadow-sm max-w-lg mx-auto bg-cardBg">
@@ -421,36 +406,90 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 1. Live Countdown Timer Setup
+            // 1. Simple Days to Go Calculation
             const weddingDate = new Date("February 24, 2027 18:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            const daysToGo = Math.ceil(distance / (1000 * 60 * 60 * 24));
 
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = weddingDate - now;
-
-                if (distance < 0) {
-                    document.getElementById("timerDays").innerText = "00";
-                    document.getElementById("timerHours").innerText = "00";
-                    document.getElementById("timerMinutes").innerText = "00";
-                    document.getElementById("timerSeconds").innerText = "00";
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("timerDays").innerText = days < 10 ? "0" + days : days;
-                document.getElementById("timerHours").innerText = hours < 10 ? "0" + hours : hours;
-                document.getElementById("timerMinutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("timerSeconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            const daysToGoElement = document.getElementById('daysToGoText');
+            if (daysToGo > 0) {
+                daysToGoElement.innerText = `✦ ${daysToGo} Days To Go ✦`;
+            } else if (daysToGo === 0) {
+                daysToGoElement.innerText = `✦ Today is the Wedding Day! ✦`;
+            } else {
+                daysToGoElement.innerText = `✦ Happily Married ✦`;
             }
 
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+            // 2. Photo Gallery Carousel Logic
+            const photoList = [
+                "https://res.cloudinary.com/sh3fgk3f/image/upload/v1792350150/WhatsApp_Image_2026-10-19_at_00.28.22.jpg",
+                "https://res.cloudinary.com/sh3fgk3f/image/upload/v1792350602/WhatsApp_Image_2026-10-19_at_00.36.04.jpg",
+                "https://res.cloudinary.com/sh3fgk3f/image/upload/v1792350621/WhatsApp_Image_2026-10-19_at_00.39.19.jpg"
+            ];
 
-            // 2. Audio Control, Mobile Autoplay & Focus Handler
+            let currentSlide = 0;
+            const carouselImage = document.getElementById('carouselImage');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const carouselDots = document.getElementById('carouselDots');
+            const carouselContainer = document.getElementById('carouselContainer');
+            let slideInterval;
+
+            function renderDots() {
+                carouselDots.innerHTML = photoList.map((_, index) => `
+                    <button class="w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-white w-4' : 'bg-white/50'}" data-slide="${index}"></button>
+                `).join('');
+                
+                carouselDots.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        currentSlide = parseInt(e.target.dataset.slide);
+                        updateSlide();
+                        resetTimer();
+                    });
+                });
+            }
+
+            function updateSlide() {
+                carouselImage.style.opacity = '0';
+                setTimeout(() => {
+                    carouselImage.src = photoList[currentSlide];
+                    carouselImage.style.opacity = '1';
+                    renderDots();
+                }, 200);
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % photoList.length;
+                updateSlide();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + photoList.length) % photoList.length;
+                updateSlide();
+            }
+
+            function startTimer() {
+                if (photoList.length > 1) {
+                    slideInterval = setInterval(nextSlide, 4000);
+                }
+            }
+
+            function resetTimer() {
+                clearInterval(slideInterval);
+                startTimer();
+            }
+
+            prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+            nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            carouselContainer.addEventListener('mouseleave', () => startTimer());
+
+            renderDots();
+            startTimer();
+
+            // 3. Audio Control, Mobile Autoplay & Focus Handler
             const musicToggle = document.getElementById('musicToggle');
             const bgMusic = document.getElementById('bgMusic');
             const musicIcon = document.getElementById('musicIcon');
@@ -479,10 +518,8 @@
                 musicText.innerText = "Play Music";
             }
 
-            // Attempt immediate playback on load
             playAudio();
 
-            // Mobile unlock: triggers on first touch anywhere on screen
             function handleFirstInteraction() {
                 if (!isPlaying && !userExplicitlyPaused) {
                     playAudio();
@@ -496,7 +533,6 @@
             document.addEventListener('touchstart', handleFirstInteraction);
             document.addEventListener('scroll', handleFirstInteraction);
 
-            // Toggle button click handler
             musicToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (isPlaying) {
@@ -508,7 +544,6 @@
                 }
             });
 
-            // Pause music automatically when browser goes out of focus (switch tabs / minimize)
             document.addEventListener('visibilitychange', function() {
                 if (document.hidden) {
                     if (isPlaying) {
@@ -519,12 +554,6 @@
                         bgMusic.play().catch(e => console.log("Resume prevented:", e));
                     }
                 }
-            });
-
-            // 3. Add to Google Calendar Action Button
-            document.getElementById('addToCalBtn').addEventListener('click', function() {
-                const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Anuska+%26+Debdan+Wedding&dates=20270224T123000Z/20270224T180000Z&details=Join+us+in+celebrating+the+wedding+of+Anuska+and+Debdan!&location=Kolkata,+India";
-                window.open(calUrl, '_blank');
             });
 
             // 4. RSVP LocalStorage Handling
