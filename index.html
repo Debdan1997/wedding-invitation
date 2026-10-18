@@ -18,14 +18,15 @@
             theme: {
                 extend: {
                     colors: {
-                        creamBg: '#fbf9f5',
-                        columnBg: '#f4ede2',
+                        customBg: '#FCDB6D',     // Background color #FCDB6D
+                        columnBg: '#ffffff',       // Main frame background remains white
                         cardBg: '#faf6f0',
                         goldAccent: '#c5a059',
                         goldHover: '#b08b46',
                         darkCharcoal: '#2d2b2a',
                         softMuted: '#6e6a66',
-                        champagne: '#e8dfd1'
+                        champagne: '#e8dfd1',
+                        deepRed: '#8B0000'         // Deep red tone for couple text
                     },
                     fontFamily: {
                         satisfy: ['"Satisfy"', 'cursive'],
@@ -49,7 +50,7 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #fbf9f5;
+            background: #FCDB6D;
         }
         ::-webkit-scrollbar-thumb {
             background: #d4c8b8;
@@ -57,6 +58,28 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #c5a059;
+        }
+
+        /* --- VERTICAL ALPANA STRIP (OPTION 1) --- */
+        .alpana-strip {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            pointer-events: none;
+            z-index: 20;
+            opacity: 0.85;
+            background-repeat: repeat-y;
+            background-size: 30px 80px;
+            /* Option 1: Classic Lotus & Swirl Vine */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 80' width='30' height='80'%3E%3Cg fill='none' stroke='%238B0000' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M15,0 Q22,20 15,40 Q8,60 15,80' /%3E%3Cpath d='M15,20 C10,15 5,20 10,25 C15,30 20,25 15,20 Z' fill='%238B0000' opacity='0.2' /%3E%3Cpath d='M15,60 C10,55 5,60 10,65 C15,70 20,65 15,60 Z' fill='%238B0000' opacity='0.2' /%3E%3Ccircle cx='15' cy='40' r='2.5' fill='%238B0000' /%3E%3C/g%3E%3C/svg%3E");
+        }
+        .alpana-left {
+            left: 2px;
+        }
+        .alpana-right {
+            right: 2px;
+            transform: scaleX(-1);
         }
 
         .gold-border-decor {
@@ -68,7 +91,7 @@
             position: absolute;
             color: #c5a059;
             font-size: 12px;
-            background: #f4ede2;
+            background: #ffffff;
             padding: 0 4px;
         }
         .gold-border-decor::before { top: -9px; left: 50%; transform: translateX(-50%); }
@@ -83,26 +106,22 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        @keyframes subtlePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.06); }
-        }
-        .pulse-subtle {
-            animation: subtlePulse 3s infinite ease-in-out;
-        }
     </style>
 </head>
-<body class="bg-creamBg text-darkCharcoal font-serifBody antialiased min-h-screen flex justify-center selection:bg-goldAccent selection:text-white">
+<body class="bg-customBg text-darkCharcoal font-serifBody antialiased min-h-screen flex justify-center selection:bg-goldAccent selection:text-white">
 
     <!-- Subtle Background Pattern -->
-    <div class="fixed inset-0 pointer-events-none opacity-40 z-0 bg-[radial-gradient(#c5a059_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <div class="fixed inset-0 pointer-events-none opacity-20 z-0 bg-[radial-gradient(#8B0000_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
-    <!-- Main Central Column Container -->
-    <main class="relative z-10 w-full max-w-2xl bg-columnBg min-h-screen shadow-2xl border-x border-goldAccent/20 flex flex-col my-0 sm:my-4 sm:rounded-2xl overflow-hidden transition-all duration-300">
+    <!-- Main Central Column Container (White Frame) -->
+    <main class="relative z-10 w-full max-w-2xl bg-white min-h-screen shadow-2xl border-x border-goldAccent/20 flex flex-col my-0 sm:my-4 sm:rounded-2xl overflow-hidden transition-all duration-300">
+
+        <!-- Alpana Side Decorative Strips -->
+        <div class="alpana-strip alpana-left"></div>
+        <div class="alpana-strip alpana-right"></div>
 
         <!-- Top Sticky Control Bar -->
-        <header class="sticky top-0 z-50 bg-columnBg/95 backdrop-blur-md border-b border-goldAccent/20 px-3 sm:px-4 py-2.5 flex justify-between items-center text-xs tracking-widest font-sans uppercase text-softMuted">
+        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-goldAccent/20 px-6 sm:px-8 py-2.5 flex justify-between items-center text-xs tracking-widest font-sans uppercase text-softMuted">
             <!-- Dynamic Header Font Switcher Dropdown -->
             <div class="flex items-center space-x-1 sm:space-x-2">
                 <i class="fas fa-pen-nib text-goldAccent text-xs"></i>
@@ -129,7 +148,7 @@
         </header>
 
         <!-- Hero / Save The Date Section -->
-        <section class="px-6 py-12 md:py-16 text-center flex flex-col items-center justify-center relative border-b border-goldAccent/20 bg-gradient-to-b from-cardBg/50 to-columnBg">
+        <section class="px-8 sm:px-12 py-12 md:py-16 text-center flex flex-col items-center justify-center relative border-b border-goldAccent/20 bg-gradient-to-b from-cardBg/50 to-white">
             
             <!-- Floral Ornament SVG Top -->
             <div class="w-24 mb-3 opacity-80">
@@ -143,8 +162,8 @@
                 Save Our Date
             </p>
 
-            <!-- Main Couple Names with Dynamic Script Font Class -->
-            <h1 id="coupleHeading" class="font-dancing text-5xl sm:text-7xl md:text-8xl text-darkCharcoal my-3 tracking-normal leading-tight font-normal transition-all duration-300">
+            <!-- Main Couple Names in Deep Red -->
+            <h1 id="coupleHeading" class="font-dancing text-5xl sm:text-7xl md:text-8xl text-deepRed my-3 tracking-normal leading-tight font-normal transition-all duration-300">
                 Anuska <span class="text-goldAccent font-serifBody text-3xl sm:text-5xl italic font-normal mx-1">&amp;</span> Debdan
             </h1>
 
@@ -170,19 +189,19 @@
                 </h3>
                 
                 <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
+                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
                         <span id="timerDays" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
                         <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Days</span>
                     </div>
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
+                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
                         <span id="timerHours" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
                         <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Hours</span>
                     </div>
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
+                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
                         <span id="timerMinutes" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
                         <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Mins</span>
                     </div>
-                    <div class="p-2 sm:p-3 bg-columnBg/60 rounded-lg border border-goldAccent/20">
+                    <div class="p-2 sm:p-3 bg-white/80 rounded-lg border border-goldAccent/20">
                         <span id="timerSeconds" class="block font-sans text-2xl sm:text-3xl font-semibold text-darkCharcoal">00</span>
                         <span class="text-[10px] font-sans uppercase tracking-wider text-softMuted">Secs</span>
                     </div>
@@ -190,7 +209,7 @@
 
                 <!-- Add to Calendar Button -->
                 <div class="mt-6 flex justify-center">
-                    <button id="addToCalBtn" class="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-wider text-goldAccent hover:text-goldHover border border-goldAccent/40 hover:border-goldAccent bg-white/50 px-4 py-2 rounded-full transition duration-300">
+                    <button id="addToCalBtn" class="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-wider text-goldAccent hover:text-goldHover border border-goldAccent/40 hover:border-goldAccent bg-white px-4 py-2 rounded-full transition duration-300">
                         <i class="far fa-calendar-plus"></i>
                         <span>Add to Google Calendar</span>
                     </button>
@@ -200,7 +219,7 @@
         </section>
 
         <!-- Welcome / Our Story Section -->
-        <section class="px-6 py-12 text-center bg-cardBg/40 border-b border-goldAccent/20 fade-in-up">
+        <section class="px-8 sm:px-12 py-12 text-center bg-cardBg/40 border-b border-goldAccent/20 fade-in-up">
             <div class="max-w-lg mx-auto">
                 <span class="text-goldAccent text-2xl font-serifBody">✦</span>
                 <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1 mb-4">
@@ -218,7 +237,7 @@
         </section>
 
         <!-- Wedding Events & Timeline Section -->
-        <section class="px-6 py-12 border-b border-goldAccent/20 fade-in-up">
+        <section class="px-8 sm:px-12 py-12 border-b border-goldAccent/20 fade-in-up">
             <div class="text-center mb-10">
                 <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Program Schedule</span>
                 <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1">Wedding Events</h2>
@@ -296,7 +315,7 @@
         </section>
 
         <!-- Interactive RSVP Section -->
-        <section id="rsvp" class="px-6 py-12 bg-cardBg/60 border-b border-goldAccent/20 fade-in-up">
+        <section id="rsvp" class="px-8 sm:px-12 py-12 bg-cardBg/60 border-b border-goldAccent/20 fade-in-up">
             <div class="max-w-lg mx-auto">
                 <div class="text-center mb-8">
                     <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Kindly Respond</span>
@@ -358,7 +377,7 @@
         </section>
 
         <!-- Location / Map Section -->
-        <section class="px-6 py-12 text-center fade-in-up">
+        <section class="px-8 sm:px-12 py-12 text-center fade-in-up">
             <span class="font-sans uppercase text-xs tracking-widest text-goldAccent font-semibold">Location Details</span>
             <h2 class="font-serifBody text-3xl text-darkCharcoal font-semibold mt-1 mb-4">Venue Map</h2>
             <div class="w-12 h-0.5 bg-goldAccent mx-auto mb-6 opacity-60"></div>
@@ -375,8 +394,8 @@
         </section>
 
         <!-- Footer -->
-        <footer class="mt-auto py-8 px-6 text-center bg-cardBg border-t border-goldAccent/20 font-sans text-xs text-softMuted">
-            <p class="font-satisfy text-2xl text-darkCharcoal mb-1">Anuska &amp; Debdan</p>
+        <footer class="mt-auto py-8 px-8 sm:px-12 text-center bg-cardBg border-t border-goldAccent/20 font-sans text-xs text-softMuted">
+            <p class="font-satisfy text-2xl text-deepRed mb-1">Anuska &amp; Debdan</p>
             <p>February 24, 2027 • Kolkata, India</p>
             <p class="mt-4 text-[10px] text-softMuted/70">Made with ❤️ for our special day</p>
         </footer>
@@ -404,9 +423,9 @@
         </div>
     </div>
 
-    <!-- Audio Element -->
-    <audio id="bgMusic" loop autoplay preload="auto">
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-piano-112191.mp3" type="audio/mpeg">
+    <!-- Audio Element linked to GitHub relative file -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="wedding_song.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -417,9 +436,7 @@
             const coupleHeading = document.getElementById('coupleHeading');
 
             fontSelector.addEventListener('change', function(e) {
-                // Remove previous script font classes
                 coupleHeading.classList.remove('font-satisfy', 'font-sacramento', 'font-dancing', 'font-caveat');
-                // Add newly selected font class
                 coupleHeading.classList.add(e.target.value);
             });
 
@@ -452,7 +469,7 @@
             updateCountdown();
             setInterval(updateCountdown, 1000);
 
-            // 3. Audio Control & Autoplay Handler
+            // 3. Audio Control & Mobile Autoplay Handler
             const musicToggle = document.getElementById('musicToggle');
             const bgMusic = document.getElementById('bgMusic');
             const musicIcon = document.getElementById('musicIcon');
@@ -468,7 +485,7 @@
                     isPlaying = false;
                     musicIcon.className = "fas fa-music text-goldAccent";
                     musicText.innerText = "Play Music";
-                    console.log("Autoplay paused waiting for user gesture:", err);
+                    console.log("Mobile browser blocked autoplay until interaction:", err);
                 });
             }
 
@@ -479,10 +496,8 @@
                 musicText.innerText = "Play Music";
             }
 
-            // Attempt autoplay on initial page load
             playAudio();
 
-            // Direct user interaction fallback (plays audio on first tap/click anywhere if blocked by browser policy)
             function enableAudioOnFirstInteraction() {
                 if (!isPlaying) {
                     playAudio();
@@ -494,9 +509,8 @@
             document.addEventListener('click', enableAudioOnFirstInteraction);
             document.addEventListener('touchstart', enableAudioOnFirstInteraction);
 
-            // Manual toggle button
             musicToggle.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevents document click trigger conflicts
+                e.stopPropagation();
                 if (isPlaying) {
                     pauseAudio();
                 } else {
@@ -574,7 +588,7 @@
                             <span class="${item.attendance === 'Joyfully Accepts' ? 'text-green-700' : 'text-red-600'}">${item.attendance}</span>
                         </div>
                         <div class="text-softMuted mt-1">Guests: ${item.count} | Date: ${item.date}</div>
-                        ${item.message ? `<div class="mt-1 italic text-darkCharcoal bg-columnBg/30 p-1.5 rounded">"${item.message}"</div>` : ''}
+                        ${item.message ? `<div class="mt-1 italic text-darkCharcoal bg-white/50 p-1.5 rounded border border-goldAccent/10">"${item.message}"</div>` : ''}
                     </div>
                 `).join('');
             }
