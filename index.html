@@ -6,10 +6,10 @@
     <title>Anuska weds Debdan - Wedding Invitation</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Satisfy, Sacramento, Dancing Script, Caveat, Cormorant Garamond, Montserrat -->
+    <!-- Google Fonts: Dancing Script, Cormorant Garamond, Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&family=Sacramento&family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -18,21 +18,18 @@
             theme: {
                 extend: {
                     colors: {
-                        customBg: '#FCDB6D',     // Background color #FCDB6D
-                        columnBg: '#ffffff',       // Main frame background remains white
+                        customBg: '#FCDB6D',
+                        columnBg: '#ffffff',
                         cardBg: '#faf6f0',
                         goldAccent: '#c5a059',
                         goldHover: '#b08b46',
                         darkCharcoal: '#2d2b2a',
                         softMuted: '#6e6a66',
                         champagne: '#e8dfd1',
-                        deepRed: '#8B0000'         // Deep red tone for couple text
+                        deepRed: '#8B0000'
                     },
                     fontFamily: {
-                        satisfy: ['"Satisfy"', 'cursive'],
-                        sacramento: ['"Sacramento"', 'cursive'],
                         dancing: ['"Dancing Script"', 'cursive'],
-                        caveat: ['"Caveat"', 'cursive'],
                         serifBody: ['"Cormorant Garamond"', 'serif'],
                         sans: ['"Montserrat"', 'sans-serif'],
                     }
@@ -71,7 +68,6 @@
             opacity: 0.85;
             background-repeat: repeat-y;
             background-size: 30px 80px;
-            /* Option 1: Classic Lotus & Swirl Vine */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 80' width='30' height='80'%3E%3Cg fill='none' stroke='%238B0000' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M15,0 Q22,20 15,40 Q8,60 15,80' /%3E%3Cpath d='M15,20 C10,15 5,20 10,25 C15,30 20,25 15,20 Z' fill='%238B0000' opacity='0.2' /%3E%3Cpath d='M15,60 C10,55 5,60 10,65 C15,70 20,65 15,60 Z' fill='%238B0000' opacity='0.2' /%3E%3Ccircle cx='15' cy='40' r='2.5' fill='%238B0000' /%3E%3C/g%3E%3C/svg%3E");
         }
         .alpana-left {
@@ -121,23 +117,17 @@
         <div class="alpana-strip alpana-right"></div>
 
         <!-- Top Sticky Control Bar -->
-        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-goldAccent/20 px-6 sm:px-8 py-2.5 flex justify-between items-center text-xs tracking-widest font-sans uppercase text-softMuted">
-            <!-- Dynamic Header Font Switcher Dropdown -->
-            <div class="flex items-center space-x-1 sm:space-x-2">
-                <i class="fas fa-pen-nib text-goldAccent text-xs"></i>
-                <select id="fontSelector" class="bg-cardBg/90 border border-goldAccent/30 text-darkCharcoal text-[11px] font-sans font-medium rounded-full px-2 py-1 focus:outline-none focus:ring-1 focus:ring-goldAccent cursor-pointer shadow-sm">
-                    <option value="font-dancing" selected>Dancing Script (Lively Warm)</option>
-                    <option value="font-satisfy">Satisfy (Friendly Cursive)</option>
-                    <option value="font-sacramento">Sacramento (Soft Flowy)</option>
-                    <option value="font-caveat">Caveat (Personal Casual)</option>
-                </select>
+        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-goldAccent/20 px-6 sm:px-8 py-3 flex justify-between items-center text-xs tracking-widest font-sans uppercase text-softMuted">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-heart text-deepRed text-xs"></i>
+                <span class="font-semibold text-darkCharcoal tracking-wider">Anuska &amp; Debdan</span>
             </div>
             
             <div class="flex items-center space-x-2 sm:space-x-3">
                 <!-- Audio Toggle Button -->
                 <button id="musicToggle" class="flex items-center space-x-1.5 bg-cardBg hover:bg-goldAccent hover:text-white border border-goldAccent/30 px-3 py-1.5 rounded-full transition-all duration-300 text-darkCharcoal shadow-sm" title="Toggle Music">
-                    <i id="musicIcon" class="fas fa-pause text-goldAccent"></i>
-                    <span id="musicText" class="text-[10px] uppercase font-medium hidden sm:inline">Pause Music</span>
+                    <i id="musicIcon" class="fas fa-music text-goldAccent"></i>
+                    <span id="musicText" class="text-[10px] uppercase font-medium hidden sm:inline">Play Music</span>
                 </button>
 
                 <!-- Navigation Quick Menu Link -->
@@ -162,8 +152,8 @@
                 Save Our Date
             </p>
 
-            <!-- Main Couple Names in Deep Red -->
-            <h1 id="coupleHeading" class="font-dancing text-5xl sm:text-7xl md:text-8xl text-deepRed my-3 tracking-normal leading-tight font-normal transition-all duration-300">
+            <!-- Main Couple Names in Dancing Script -->
+            <h1 class="font-dancing text-5xl sm:text-7xl md:text-8xl text-deepRed my-3 tracking-normal leading-tight font-normal">
                 Anuska <span class="text-goldAccent font-serifBody text-3xl sm:text-5xl italic font-normal mx-1">&amp;</span> Debdan
             </h1>
 
@@ -395,7 +385,7 @@
 
         <!-- Footer -->
         <footer class="mt-auto py-8 px-8 sm:px-12 text-center bg-cardBg border-t border-goldAccent/20 font-sans text-xs text-softMuted">
-            <p class="font-satisfy text-2xl text-deepRed mb-1">Anuska &amp; Debdan</p>
+            <p class="font-dancing text-3xl text-deepRed mb-1">Anuska &amp; Debdan</p>
             <p>February 24, 2027 • Kolkata, India</p>
             <p class="mt-4 text-[10px] text-softMuted/70">Made with ❤️ for our special day</p>
         </footer>
@@ -423,7 +413,7 @@
         </div>
     </div>
 
-    <!-- Audio Element linked to GitHub relative file -->
+    <!-- Audio Element -->
     <audio id="bgMusic" loop preload="auto">
         <source src="wedding_song.mp3" type="audio/mpeg">
     </audio>
@@ -431,16 +421,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 1. Font Switcher Interactivity
-            const fontSelector = document.getElementById('fontSelector');
-            const coupleHeading = document.getElementById('coupleHeading');
-
-            fontSelector.addEventListener('change', function(e) {
-                coupleHeading.classList.remove('font-satisfy', 'font-sacramento', 'font-dancing', 'font-caveat');
-                coupleHeading.classList.add(e.target.value);
-            });
-
-            // 2. Live Countdown Timer Setup
+            // 1. Live Countdown Timer Setup
             const weddingDate = new Date("February 24, 2027 18:00:00").getTime();
 
             function updateCountdown() {
@@ -469,14 +450,16 @@
             updateCountdown();
             setInterval(updateCountdown, 1000);
 
-            // 3. Audio Control & Mobile Autoplay Handler
+            // 2. Audio Control, Mobile Autoplay & Focus Handler
             const musicToggle = document.getElementById('musicToggle');
             const bgMusic = document.getElementById('bgMusic');
             const musicIcon = document.getElementById('musicIcon');
             const musicText = document.getElementById('musicText');
             let isPlaying = false;
+            let userExplicitlyPaused = false;
 
             function playAudio() {
+                if (userExplicitlyPaused) return;
                 bgMusic.play().then(() => {
                     isPlaying = true;
                     musicIcon.className = "fas fa-pause text-goldAccent";
@@ -485,7 +468,7 @@
                     isPlaying = false;
                     musicIcon.className = "fas fa-music text-goldAccent";
                     musicText.innerText = "Play Music";
-                    console.log("Mobile browser blocked autoplay until interaction:", err);
+                    console.log("Autoplay blocked waiting for user interaction:", err);
                 });
             }
 
@@ -496,35 +479,55 @@
                 musicText.innerText = "Play Music";
             }
 
+            // Attempt immediate playback on load
             playAudio();
 
-            function enableAudioOnFirstInteraction() {
-                if (!isPlaying) {
+            // Mobile unlock: triggers on first touch anywhere on screen
+            function handleFirstInteraction() {
+                if (!isPlaying && !userExplicitlyPaused) {
                     playAudio();
                 }
-                document.removeEventListener('click', enableAudioOnFirstInteraction);
-                document.removeEventListener('touchstart', enableAudioOnFirstInteraction);
+                document.removeEventListener('click', handleFirstInteraction);
+                document.removeEventListener('touchstart', handleFirstInteraction);
+                document.removeEventListener('scroll', handleFirstInteraction);
             }
 
-            document.addEventListener('click', enableAudioOnFirstInteraction);
-            document.addEventListener('touchstart', enableAudioOnFirstInteraction);
+            document.addEventListener('click', handleFirstInteraction);
+            document.addEventListener('touchstart', handleFirstInteraction);
+            document.addEventListener('scroll', handleFirstInteraction);
 
+            // Toggle button click handler
             musicToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (isPlaying) {
+                    userExplicitlyPaused = true;
                     pauseAudio();
                 } else {
+                    userExplicitlyPaused = false;
                     playAudio();
                 }
             });
 
-            // 4. Add to Google Calendar Action Button
+            // Pause music automatically when browser goes out of focus (switch tabs / minimize)
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (isPlaying) {
+                        bgMusic.pause();
+                    }
+                } else {
+                    if (isPlaying && !userExplicitlyPaused) {
+                        bgMusic.play().catch(e => console.log("Resume prevented:", e));
+                    }
+                }
+            });
+
+            // 3. Add to Google Calendar Action Button
             document.getElementById('addToCalBtn').addEventListener('click', function() {
                 const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Anuska+%26+Debdan+Wedding&dates=20270224T123000Z/20270224T180000Z&details=Join+us+in+celebrating+the+wedding+of+Anuska+and+Debdan!&location=Kolkata,+India";
                 window.open(calUrl, '_blank');
             });
 
-            // 5. RSVP LocalStorage Handling
+            // 4. RSVP LocalStorage Handling
             const rsvpForm = document.getElementById('rsvpForm');
             const rsvpSuccess = document.getElementById('rsvpSuccess');
             const savedCount = document.getElementById('savedCount');
@@ -566,7 +569,7 @@
                 updateSavedCount();
             });
 
-            // 6. Responses Modal Logic
+            // 5. Responses Modal Logic
             const viewResponsesBtn = document.getElementById('viewResponsesBtn');
             const responsesModal = document.getElementById('responsesModal');
             const closeModalBtn = document.getElementById('closeModalBtn');
@@ -610,7 +613,7 @@
                 }
             });
 
-            // 7. Scroll Reveal Animation Observer
+            // 6. Scroll Reveal Animation Observer
             const fadeElements = document.querySelectorAll('.fade-in-up');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
